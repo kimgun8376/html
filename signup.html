@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      border: 1px solid#ccc;
+      width: 80%;
+      height: 90vh;
+      font-size: small;
+      padding: 5px;       
+    }
+
+    img {
+      width: 10px;
+    }
+
+
+    label {
+      display: inline-block;
+      width: 25%;
+      text-align: right;
+      margin-right: 10px;
+    }
+    label.info {
+      width: 10%;
+    }
+
+    select {
+      width: 300px;
+      text-align:right#7a5c5c ;
+    }
+
+    input.tel{
+     width: 60px; 
+    }
+    
+    input[type:"radio"]
+     {width:70px;
+     }
+     input.password {background color:right;
+     }
+      span {
+      font-size: small;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h3>일반회원가입신청</h3>
+    <hr>
+    <label for="member_id"><img src="체크박스.PNG" alt="체크박스 이미지">일반회원아이디</label>
+    <input for="test" name="" id="member_id">
+    <button>중복아이디 검색</button>
+    <hr>
+    <label for=""><img src="체크박스.PNG" alt="체크박스 이미지">일반회원이름</label>
+    <input type="test" name="" id="member_naem">
+    <hr>
+    <label for=""><img src="체크박스.PNG" alt="체크박스 이미지">비밀번호</label>
+    <input type="test" class="password" name: id="member_password">
+    <span>(8~20자의 영대문소문자,특수문자만 가능합니다.)</span>
+    <hr>
+    <label for=""><img src="체크박스.PNG" alt="체크박스 이미지">비밀번호확인</label>
+    <input type="test" name="" id="member_password check">
+    <hr>
+    <label for="hint"><img src="체크박스.PNG" alt="체크박스 이미지">비밀번호힌트</label>
+    <select naem="" id="hint">
+      <option value="">--선택하시오--</option>s
+      <option>어릴적 별명은?</option>
+      <hr>
+      <label for="password_2"><img src="체크박스.PNG" alt="체크박스 이미지">비밀번호정답</label>
+      <input type="text" name="" id="password_3">
+      <hr>
+      <label for="password_2">전화번호</label>
+      <input class="tel" name="text" id="tel_1"> -
+      <input class="tel" name="text" id="tel_2"> -
+      <input class="tel" name="text" id="tel_3">
+      <hr>
+      <label for="password_2">핸드폰번호</label>
+      <input type="text" name="" id="tel_2">
+       <hr>
+       <label for="umail"><img src="체크박스.PNG" alt="체크박스 이미지">이메일주소</label>
+       <input type="email" name="" id="unmail">
+       <hr>
+       <label for=""><img src="체크박스.PNG" alt="체크박스 이미지">소속정보</label>
+       <label class="info"><input type="radio" name="info" id="company">일반기업</label>
+       <label class="info"><input type="radio" name="info" id="govene">공기업</label>
+       <hr>
+       <label for="hint"><img src="체크박스.PNG" alt="체크박스 이미지">소속명</label>
+       <input type="text" name="" id="">
+       <hr>
+       <label for="hint"><img src="" alt="">인증서 DN</label>
+       <input type="text" name="" id="">
+       <button>인증서 등록</button>
+       <hr>
+       <label for="">자기소개</label>
+       <textarea name="" id="" rows="5" cols="30"></textarea>
+       <hr>
+      
+  </div>
+</body>
+
+</html>
