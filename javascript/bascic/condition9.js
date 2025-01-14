@@ -4,8 +4,8 @@ if(num1 > num2) {
   } else {
     resuit = num3;
   }
-} else {
+} //else {
   if (num2 > num3) {
     result - num2;
-  } else 
-}
+  } // 
+
