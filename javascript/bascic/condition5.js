@@ -12,9 +12,26 @@ obj.showName();
 console.log(); // 0 <= x < 1 값의 출력.
 let num1 = parseInt(Math.random() * 10) +1;
 let num2 = parseInt(Math.random() * 10) +1;
-
+console.log(num1,num2)
 let sumEven = 10; // 짝수의 값은 sumEven에 합하기
 let sumOdd = 20;  // 홀수의 값은 sumOdd에 합하기
+// truthy(10, "aaa", true) vs.falsy(0, "", null, undefined)
+
+if (num1 % 2 ) {
+   sumEven += num1;
+}else{
+  sumOdd += num1;
+}
+if (num2 % 2 ) {
+  sumEven += num2;
+}else{
+ sumOdd += num2;
+}
+
+
+console.log(`sumEven 값은 ${num1} sumOdd 값은 ${num2}`);
+
+
 
 // sumEver, sumOdd 출력.
 
