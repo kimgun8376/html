@@ -12,7 +12,7 @@
 // if (i == stop){
 // break;
 //}s
-//}d
+//}
 
 let run = true;
 let max = 0; // 최대값
@@ -22,22 +22,13 @@ while (run) {
   // 숫자가 아니면 => stop인지 아닌지 구분
   // 숫자이면 => 최고점수를 구하고 
   console.log(inputValue);
-  let temp = parseInt(inputValue); //최고점수만 출력 //isNaN(temp)
-  if (isNaN(temp)) { //입력한 값이 문자열 이라면
-    if (inputValue == 'stop') {
-      run = false; // stop을 인식 명령 
-    } else { // 문자가 아니라면..
-      alert('정상적인 값을 입력하세요')
-      //if (max < inputValue) {
-      //max = inputValue
-    }
+  //let temp = parseInt(inputValue); //최고점수만 출력
+  if (inputValue == 'stop') {
+    run = false;
   } else {
-    if (max < parseInt(inputValue)) {
-      max = parseInt(inputValue);
+    if (max < inputValue) {
+      max = inputValue
     }
   }
-}
-//end of while.
+} //end of while.
 console.log(`최고점수: ${max}`);
-// 숫자이면 temp로 단어이면 inputValus == **
-// if (temp <50){break;} 
