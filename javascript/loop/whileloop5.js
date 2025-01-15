@@ -28,7 +28,7 @@ while (true) {
 }
 
 
-let temp = 0;
+let temp = 0; //변수 
 while(temp < 3) {
   let searchName = prompt("찾을 친구 이름 입력:");
     //배열의 이름속성중에서 searchName과 같으면 포인트를 콘솔출력.
