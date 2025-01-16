@@ -8,9 +8,11 @@
 </head>
 
 <body>
-
-  <div id="show"></div>
-  <!--<table border="1">
+    <div id="show">
+    <input type="number" type="click">
+    <button name="month">입력</button>
+  </div>
+    <!--<table border="1">
      <thead></thead>
   <tbody id="list">
     <tr>
@@ -34,68 +36,82 @@
     </tr>
   </tbody>
   </table> -->
-  <script>
-    //월 정보를 알려주면 공백 반환.
-    function getDays(month = 1) {
-      if (month == 1) {
-        return 3;
-      } else if (month == 2 || month == 3) {
-        return 6;
-      } else if (month == 4) {
-        return 2;
-      } else if (month == 5) {
-        return 4;
+    <script>
+      document.querySelector('button').addEventListener('click', function () {
+        let month = document.querySelector('[name="month"]').value;
+        console.log(month);
+        makeCalendar(month);
+      })
+      //월 정보를 알려주면 공백 반환.
+
+
+      // 월정보를 알려주면 공백 반환 
+      function getDays(month = 1) {
+        if (month == 1) {
+          return 3;
+        } else if (month == 2 || month == 3) {
+          return 6;
+        } else if (month == 4) {
+          return 2;
+        } else if (month == 5) {
+          return 4;
+        } else if(month == 6) {
+          return 0;
+        }
       }
-    }
-    // 월정보를 알려주면 말일 반환.
-    function getLastDate(month = 1) {
-      if (month == 1 || month == 3 || month == 5) {
-        return 31;
-      } else if (month == 2) {
-        return 28;
-      } else {
-        return 30;
+      // 월정보를 알려주면 말일 반환.
+      function getLastDate(month = 1) {
+        if (month == 1 || month == 3 || month == 5) {
+          return 31;
+        } else if (month == 2) {
+          return 28;
+        } else {
+          return 30;
+        }
       }
-    }
-    // console.log(getDays(5), getLastDate(5));
+      // console.log(getDays(5), getLastDate(5));
+      //달력출력함수
+      function makeCalendar(month = 1) {
 
-    let spaces = getDays(1); // 1일의 위치(공백).
-    let lastDate = getLastDate(1); //월의 말일.
-    let days = ['일', '월', '화', '수', '목', '금', '토'];
-    let html = '';
-    html += '<table border="1">';
-    html += '<thead><tr>';
-    for (let day of days) {
-      html += `<th>${day}</th>`;
-    }
-    html += '</tr></thead>';
-    html += '<tbody id="list"><tr>';
-    //공백 
-    for (let i = 0; i < spaces; i++) { // 뒤로 밀렸을경우 if 문에다 추가 기입
-      html += '<td></td>'
-    }
-    // 날짜 출력.
-    for (let i = 1; i <= lastDate; i++) {
-      if ((i + spaces) % 7 == 0) {
-        html += `<td style="background-color : green;">${i}</td>`; // 특정요일 색깔 변경
+        let spaces = getDays(month); // 1일의 위치(공백).
+        let lastDate = getLastDate(month); //월의 말일.
+        let days = ['일', '월', '화', '수', '목', '금', '토'];
+        let html = '';
+        html += '<table border="1">';
+        html += `<caption>${month}월</caption>`;
+        html += '<thead><tr>';
+        for (let day of days) {
+          html += `<th>${day}</th>`;
+        }
+        html += '</tr></thead>';
+        html += '<tbody id="list"><tr>';
+        //공백 
+        for (let i = 0; i < spaces; i++) { // 뒤로 밀렸을경우 if 문에다 추가 기입
+          html += '<td></td>'
+        }
+        // 날짜 출력.
+        for (let i = 1; i <= lastDate; i++) {
+          if ((i + spaces) % 7 == 0) {
+            html += `<td style="background-color : green;">${i}</td>`; // 특정요일 색깔 변경
 
-      } else if ((i + spaces) % 7 == 1) {
-        html += `<td style="background-color : red;">${i}</td>`; // 특정요일 색깔 변경
+          } else if ((i + spaces) % 7 == 1) {
+            html += `<td style="background-color : red;">${i}</td>`; // 특정요일 색깔 변경
 
-      } else {
-        html += `<td>${i}</td>`;
-      }
+          } else {
+            html += `<td>${i}</td>`;
+          }
 
-      if ((i + spaces) % 7 == 0) { //토요일이 될때마다 줄바꿈 
-        html += '</tr><tr>';
-      }
-    }
+          if ((i + spaces) % 7 == 0) { //토요일이 될때마다 줄바꿈 
+            html += '</tr><tr>';
+          }
+        }
 
-    html += '</tr></tbody>';
-    html += '</table>';
-    document.querySelector('#show').innerHTML = html;
-    // 자바스크랩으로 작업하기
-  </script>
+        html += '</tr></tbody>';
+        html += '</table>';
+        document.querySelector('#show').innerHTML = html;
+      } // end of makeCalendar()
+      // 자바스크랩으로 작업하기
+    </script>
 </body>
 
 </html>
