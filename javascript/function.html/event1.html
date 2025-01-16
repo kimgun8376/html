@@ -6,6 +6,25 @@
   <title>Document</title>
 </head>
 <body>
-  <input type="number" name="" id="">
+  단 : <input type="number" name="kim" id="">
+  <button>구구단 출력</button>
+
+<div id = "show"></div>
+<script>
+  // button에 클릭이벤트 등록 -> 이벤트핸들러(함수) 단정보(input)를 읽어와서 구구단 출력
+  document.querySelector('button').addEventListener('click', function(){
+   // 입력값 가져오기
+  let inputValue = document.querySelector('input').value;
+  let html = "";
+  for (let i = 1; i <=9; i++){
+    html += `${inputValue} * ${i} = ${inputValue * i}</p>`;
+    }
+    html += "</p>"
+  document.querySelector('div#show').innerHTML=html;
+  })
+</script>
 </body>
 </html>
+
+
+

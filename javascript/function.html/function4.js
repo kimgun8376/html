@@ -15,3 +15,8 @@ item.addEventListener('mouseover', function(){
 item.addEventListener('mouseout', function(){
   item.style.backgroundColor = '';
 });
+
+// document.querySelector('button').addEventListener('click', functio(){
+// document.querySelector('#show').innerHTML="<p> 7*1 =7</p>";
+
+// })
