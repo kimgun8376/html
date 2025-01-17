@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>exe1.html 작성.</title>
+</head>
+
+<body>
+  이름 : <input type="text" name="friend" value="홍길동">
+  <button>친구추가</button>
+  <button name="remove">친구삭제</button>
+  <table border="1">
+    <thead>
+      <tr>
+        <td>이름</td>
+      </tr>
+    </thead>
+    <tbody id="list"></tbody>
+  </table>
+  <script>
+    //추가이벤트 등록.
+    document.querySelector('button').addEventListener('click', function () {
+      let name = document.querySelector('input[name="friend"]').value;
+      friendAry.push(name); // 배열추가
+      makeList();
+      // 초기화.
+      document.querySelector('input[name="friend"]').value = '';
+    });
+    //삭제 이벤트 등록.
+    document.querySelector('button[name="remove"]').addEventListener('click', function () {
+      friendAry.pop(); // 지울떄 pop
+      makeList();
+    }); // friendAry.pop() // 배열삭제.
+    document.querySelector('button[name="remove"]').addEventListener('click', function () {
+    let searchName = document.querySelector('input[name="friend"]').value;
+    let pos = friendAry.indexOf(searchName);
+    // 위치의삭제.
+    friendAry.splice(pos,1);
+    makeList();
+    });
+
+    let friendAry = ['정명한', '김지수', '고영서', '이민영', '정은애'];
+    let taraetItem = document.querySelector('#list'); // tbody
+    // 이름 출력
+    function makeList() {
+      let html = '';
+      friendAry.forEach(function (item, idx, ary) {
+        html += `<tr><td>${item}</td></tr>`;
+      });
+      taraetItem.innerHTML = html;
+    }
+  </script>
+</body>
+
+</html>
