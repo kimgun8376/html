@@ -8,7 +8,7 @@
 </head>
 
 <body>
-  년도 <input type ="number" name="year">
+  년도 <input type ="number" name="year" value="2025">
   월:<input type="number" name="month"><button>달력</button>
   <div id="show"></div>
 
@@ -40,47 +40,32 @@
     // 달력버튼 클릭하면 월정보를 입력받아서 출력. 
     document.querySelector('button').addEventListener('click', function () {
       let month = document.querySelector('[name="month"]').value;
+      let year = document.querySelector('[name="year"]').value;
       console.log(month);
-      makeCalendar(month);
+      makeCalendar(year, month);
     })
 
-    // 월정보를 알려주면 공백 반환.
-    function getDays(month = 1) {
-      if (month == 1) {
-        return 3;
-      } else if (month == 2 || month == 3) {
-        return 6;
-      } else if (month == 4) {
-        return 2;
-      } else if (month == 5) {
-        return 4;
-      } else if (month == 6) {
-        return 0;
-      }
-    }
-
-    // 월정보를 알려주면 말일 반환.
-    function getLastDate(month = 1) {
-      if (month == 1 || month == 3 || month == 5) {
-        return 31;
-      } else if (month == 2) {
-        return 28;
-      } else {
-        return 30;
-      }
-    }
+       makeCalendar(); 
 
     // 달력출력함수.
-    function makeCalendar(month = 1) {
+      
+    function makeCalendar(year = 2025, month = 1) {
+      let now = new Date();
+      //년도 월  지정.
+      now.setFullYear(year);
+      now.setMonth(month -1); 
+      now.setDate(1);
 
-      let spaces = getDays(month); // 1일의 위치(공백) 계산.
-      let lastDate = getLastDate(month); // 월의 말일 계산..
+      let spaces = now.getDay(month); // 1일의 위치(공백) 계산.
+      now.setMonth(month); 
+      now.setDate(0);
+      let lastDate = now.getDate(); // 월의 말일 계산..
 
       let days = ['일', '월', '화', '수', '목', '금', '토'];
       // html 작성하는 부분 시작.
       let html = '';
       html += '<table border="1">';
-      html += `<caption>${month}월</caption>`;
+      html += `<caption>${year}년 ${month}월</caption>`;
       html += '<thead><tr>';
       // 요일출력.
       for (let day of days) {
