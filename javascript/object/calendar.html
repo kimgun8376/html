@@ -37,6 +37,18 @@
     </tbody>
   </table> -->
   <script>
+    let holydays =[{
+      month :1,
+      days:[1, 2, 3] // 배열 
+    },  {
+      month:2,
+      days:[5, 8, 12]
+    }, {
+      month :3,
+      days:[1, 10, 15] //days 빨간색으로 
+    }]
+    
+   
     // 달력버튼 클릭하면 월정보를 입력받아서 출력. 
     document.querySelector('button').addEventListener('click', function () {
       let month = document.querySelector('[name="month"]').value;
