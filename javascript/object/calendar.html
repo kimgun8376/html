@@ -9,7 +9,7 @@
 
 <body>
   년도 <input type ="number" name="year" value="2025">
-  월:<input type="number" name="month"><button>달력</button>
+  월 <input type="number" name="month"><button>달력</button>
   <div id="show"></div>
 
   <!-- <table border="1">
@@ -47,7 +47,12 @@
       month :3,
       days:[1, 10, 15] //days 빨간색으로 
     }]
-    
+  
+    /* for (let i = 1; i <= lastDate; i++) {
+        if ((i + spaces) % 7 == 0) { // 토요일.
+          html += `<td style="background-color: blue; color: white;">${i}</td>`;
+        } else if ((i + spaces) % 7 == 1) { // 일요일.
+          html += `<td style="background-color: red; color: white;">${i}</td>`; */
    
     // 달력버튼 클릭하면 월정보를 입력받아서 출력. 
     document.querySelector('button').addEventListener('click', function () {

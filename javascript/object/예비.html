@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  년도 <input type ="number" name="year">
+  월 <input type ="number" name="month">
+  <button>달력</button>
+  <div id="show"></div>
+  <script>
+   document.querySelector('button').addEventListener('click',function(){
+    let month = document.querySelector('[name="month"]'),value;
+    console.log(month);
+    makeCalendar(month);
+   }) 
+
+
+
+  </script>
+</body>
+</html>
