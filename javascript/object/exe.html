@@ -36,6 +36,9 @@
     document.querySelector('button[name="remove"]').addEventListener('click', function () {
     let searchName = document.querySelector('input[name="friend"]').value;
     let pos = friendAry.indexOf(searchName);
+    if(pos == -1)
+    alert('찾는 이름이 없습니다.');
+     return;
     // 위치의삭제.
     friendAry.splice(pos,1);
     makeList();
