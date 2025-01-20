@@ -9,35 +9,14 @@
 
 <body>
   년도 <input type ="number" name="year" value="2025">
-  월 <input type="number" name="month"><button>달력</button>
+  월 <input type="number" name="month">
+  <button>달력</button>
   <div id="show"></div>
 
-  <!-- <table border="1">
-    <thead>
-      <tr>
-        <th>일</th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th><th>토</th>
-      </tr>
-    </thead>
-    <tbody id="list">
-      <tr>
-        <td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td>
-      </tr>
-      <tr>
-        <td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td>
-      </tr>
-      <tr>
-        <td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td>
-      </tr>
-      <tr>
-        <td>22</td><td>23</td><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td>
-      </tr>
-      <tr>
-        <td>29</td><td>30</td><td>31</td>
-      </tr>
-    </tbody>
-  </table> -->
+ 
   <script>
-    let holydays =[{
+     console.dir(document.querySelector('#show'));
+   let holydays =[{
       month :1,
       days:[1, 2, 3] // 배열 
     },  {
@@ -63,8 +42,18 @@
     })
 
        makeCalendar(); 
-
-    // 달력출력함수.
+       
+       
+       //월의 공휴일 날짜만 가져오기
+       let holyAry = holydays.filter(function(item, idx, ary) {
+       if (item.month == month){
+        return true;
+       }
+      return false
+       });
+       console.log(holyAry);
+      
+       // 달력출력함수.
       
     function makeCalendar(year = 2025, month = 1) {
       let now = new Date();
@@ -96,7 +85,11 @@
       }
       // 날짜출력.
       for (let i = 1; i <= lastDate; i++) {
-        if ((i + spaces) % 7 == 0) { // 토요일.
+        console.log(holyAry);
+        if(holyAry.length > 0 && holyAry[0].days.indexOf(i) != -1){
+          html += `<td style ="background-color :pink; color:white;">${i}</td>`;
+        } 
+          else if ((i + spaces) % 7 == 0) { // 토요일.
           html += `<td style="background-color: blue; color: white;">${i}</td>`;
         } else if ((i + spaces) % 7 == 1) { // 일요일.
           html += `<td style="background-color: red; color: white;">${i}</td>`;
@@ -107,7 +100,7 @@
         if ((i + spaces) % 7 == 0) {
           html += '</tr><tr>';
         }
-      }
+      } //end of for 
       html += '</tr></tbody>';
       html += '</table>';
       document.querySelector('#show').innerHTML = html;
